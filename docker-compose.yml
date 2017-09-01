@@ -1,2 +1,5 @@
 app:
   build: .
+  volumes:
+    - ./app
+    - /usr/local/bin/buildkite-agent:/usr/bin/buildkite-agent
