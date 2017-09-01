@@ -1,5 +1,12 @@
 steps:
   - name: ":node:"
     command: "npm test"
+    plugins:
+        docker-compose:
+            run: app
+            config: docker-compose.buildkite.yml
+            pull-retries: 1
     env:
       BUILDKITE_DOCKER_COMPOSE_CONTAINER: "app"
+      BUILDKITE_DOCKER_COMPOSE_FILE: "docker-compose.buildkite.yml"
+      COMPOSE_HTTP_TIMEOUT: 120
